@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void buttonClicked(View view) {
         TextView message = findViewById(R.id.greetingText);
-        message.setText("Welcome to Android world");
+        EditText input = findViewById(R.id.greetingInput);
+        message.setText(input.getText());
     }
 }
