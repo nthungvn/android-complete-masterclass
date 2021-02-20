@@ -16,8 +16,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void buttonClicked(View view) {
-        TextView message = findViewById(R.id.greetingText);
-        EditText input = findViewById(R.id.greetingInput);
-        message.setText(input.getText());
+        TextView output = findViewById(R.id.bmiResult);
+        TextView height = findViewById(R.id.yourHeight);
+        TextView weight = findViewById(R.id.yourWeight);
+        Float heightValue = Float.valueOf(height.getText().toString());
+        Float weightValue = Float.valueOf(weight.getText().toString());
+        Float bmiResult = heightValue / (weightValue * weightValue);
+        output.setText(bmiResult.toString());
     }
 }

@@ -25,7 +25,7 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Enter your Height"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appName" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Enter your Weight"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         app:layout_constraintStart_toStartOf="@+id/yourHeight"
         app:layout_constraintTop_toBottomOf="@+id/yourHeight" />
 
@@ -59,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
         android:text="Calculate"
+        android:onClick="buttonClicked"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/yourWeight" />
