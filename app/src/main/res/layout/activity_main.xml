@@ -9,18 +9,19 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/switchButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp"
-        android:text="First Activity" />
+        android:textSize="16sp"
+        android:text="Hello world, there" />
 
     <Button
         android:id="@+id/switchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:onClick="onSwitchButtonClicked"
         android:text="Switch" />
 </RelativeLayout>
