@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,32 +11,16 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:text="Email"
-        android:textSize="18dp" />
-
-    <EditText
-        android:layout_row="0"
-        android:layout_column="1"
-        android:layout_gravity="fill_horizontal"
-        android:layout_marginLeft="5dp"
-        android:hint="Your email" />
-
-    <EditText
-        android:layout_row="1"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:layout_gravity="fill"
-        android:gravity="top"
-        android:hint="Enter your message"
-
-        />
+        android:layout_above="@+id/switchButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="First Activity" />
 
     <Button
-        android:layout_row="2"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:layout_gravity="center_horizontal"
-        android:text="Send" />
-</GridLayout>
+        android:id="@+id/switchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:onClick="onSwitchButtonClicked"
+        android:text="Switch" />
+</RelativeLayout>
