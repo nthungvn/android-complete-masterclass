@@ -8,20 +8,9 @@
     android:rowCount="3"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/greeting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/switchButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp"
-        android:textSize="16sp"
-        android:text="Hello world, there" />
-
-    <Button
-        android:id="@+id/switchButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Switch" />
+    <ListView
+        android:id="@+id/food_type"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:entries="@array/options" />
 </RelativeLayout>
