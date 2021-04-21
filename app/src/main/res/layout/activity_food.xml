@@ -6,6 +6,11 @@
     android:orientation="vertical"
     tools:context=".FoodActivity">
 
+    <ImageView
+        android:id="@+id/food_image"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp" />
+
     <TextView
         android:id="@+id/food_name"
         android:layout_width="match_parent"

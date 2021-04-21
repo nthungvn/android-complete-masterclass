@@ -21,7 +21,7 @@ public class FoodCategoryActivity extends ListActivity {
     protected void onListItemClick(ListView listview, View view, int position, long id) {
         super.onListItemClick(listview, view, position, id);
         Intent intent = new Intent(this, FoodActivity.class);
-        intent.putExtra(FoodActivity.EXTRAS_FOOD_NO, id);
+        intent.putExtra(FoodActivity.EXTRAS_FOOD_NO, position);
         startActivity(intent);
     }
 }
