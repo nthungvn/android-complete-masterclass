@@ -7,8 +7,17 @@
     tools:context=".MainActivity">
 
     <fragment
+        android:id="@+id/menu_item_fragment"
+        class="vn.vl.nthung.androidcm.MenuFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <fragment
+        android:id="@+id/menu_detail_fragment"
         class="vn.vl.nthung.androidcm.MenuDetailFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2" />
 
 </LinearLayout>
