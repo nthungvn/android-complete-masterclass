@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidCM.NoActionBar">
-
+        <activity
+            android:name=".NavigationActivity"
+            android:label="Navigation"
+            android:theme="@style/Theme.AndroidCM.NoActionBar" />
         <activity
             android:name=".ActionBarActivity"
             android:label="@string/title_activity_action_bar"

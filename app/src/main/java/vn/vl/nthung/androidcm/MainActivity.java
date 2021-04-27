@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btn = findViewById(R.id.cta);
         btn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, ActionBarActivity.class);
+            Intent intent = new Intent(this, NavigationActivity.class);
             startActivity(intent);
         });
     }
