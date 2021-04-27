@@ -8,15 +8,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidCM">
+        android:theme="@style/Theme.AndroidCM.NoActionBar">
+
         <activity
             android:name=".ActionBarActivity"
             android:label="@string/title_activity_action_bar"
-            android:theme="@style/Theme.AndroidCM.NoActionBar"></activity>
+            android:theme="@style/Theme.AndroidCM.NoActionBar" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
