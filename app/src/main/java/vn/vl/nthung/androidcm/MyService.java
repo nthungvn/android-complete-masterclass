@@ -2,6 +2,7 @@ package vn.vl.nthung.androidcm;
 
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
@@ -38,16 +39,22 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Intent mainActivity = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, mainActivity, 0);
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.outline_home_black_24dp)
                 .setContentTitle("Service started")
                 .setContentText("Your service is running in the background and will be stopped in 5 seconds")
                 .setStyle(new NotificationCompat.BigTextStyle().bigText("Your service is running in the background and will be stopped in 5 seconds"))
+                .setContentIntent(pendingIntent)
+                .setAutoCancel(true)
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
         notificationManager.notify(123, builder.build());
         Toast.makeText(this, "Service started", Toast.LENGTH_LONG).show();
+
         Message message = serviceHandler.obtainMessage();
         message.arg1 = startId;
         serviceHandler.sendMessage(message);
