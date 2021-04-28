@@ -8,10 +8,11 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
-import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MyService extends Service {
     private Looper serviceLooper;
@@ -32,16 +33,16 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(this.getClass().getCanonicalName(), "Service started");
+        Toast.makeText(this, "Service started", Toast.LENGTH_LONG).show();
         Message message = serviceHandler.obtainMessage();
         message.arg1 = startId;
         serviceHandler.sendMessage(message);
-        return START_STICKY;
+        return START_NOT_STICKY;
     }
 
     @Override
     public void onDestroy() {
-        Log.i(this.getClass().getCanonicalName(), "Service done");
+        Toast.makeText(this, "Service done", Toast.LENGTH_LONG).show();
     }
 
     class ServiceHandler extends Handler {
