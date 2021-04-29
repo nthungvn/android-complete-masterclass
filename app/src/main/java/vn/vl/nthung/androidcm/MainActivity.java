@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button deleteTaskBtn = findViewById(R.id.delete_task_btn);
         deleteTaskBtn.setOnClickListener(this.onDeleteTask);
+
+        updateTaskList();
     }
 
     private View.OnClickListener onAddTask = (view) -> {
