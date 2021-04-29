@@ -12,6 +12,7 @@
         android:id="@+id/task_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:hint="Enter task name"
         android:textAlignment="center" />
 
@@ -32,6 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
         android:hint="There is no task yet"
         android:textAlignment="center"
         android:textSize="18sp" />

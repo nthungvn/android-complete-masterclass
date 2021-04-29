@@ -16,7 +16,7 @@ public class TaskSqliteHelper extends SQLiteOpenHelper {
     private static final int DB_VERSION = 1;
     private static final String DB_NAME = "task.db";
 
-    private static final String SQL_CREATE_TABLE = "CREATE TABLE " + TaskEntry.COLUMN_NAME + " (" +
+    private static final String SQL_CREATE_TABLE = "CREATE TABLE " + TaskEntry.TABLE_NAME + " (" +
             TaskEntry._ID + " INTEGER  PRIMARY KEY AUTOINCREMENT," +
             TaskEntry.COLUMN_NAME + " TEXT)";
 
