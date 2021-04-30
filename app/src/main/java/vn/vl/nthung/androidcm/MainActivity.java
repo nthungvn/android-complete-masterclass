@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         playButton.setOnClickListener((view) -> {
             MediaPlayer player = MediaPlayer.create(this, R.raw.tone_sms);
             player.start();
+
+            Toast.makeText(this, "Audio is playing", Toast.LENGTH_LONG).show();
         });
     }
 }
