@@ -7,8 +7,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.ParcelFileDescriptor;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
     private Button saveBtn;
 
     private ImageView memeImage;
+    private EditText topText;
+    private EditText bottomText;
+
+    private TextView topMemeText;
+    private TextView bottomMemeText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +42,11 @@ public class MainActivity extends AppCompatActivity {
         previewBtn = findViewById(R.id.preview_button);
         saveBtn = findViewById(R.id.save_button);
         memeImage = findViewById(R.id.meme_image);
+
+        topText = findViewById(R.id.top_text);
+        bottomText = findViewById(R.id.bottom_text);
+        topMemeText = findViewById(R.id.top_meme_text);
+        bottomMemeText = findViewById(R.id.bottom_meme_text);
 
         selectImageBtn.setOnClickListener(onSelectImageClickedHandler);
         previewBtn.setOnClickListener(onPreviewClickedHandler);
@@ -71,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private View.OnClickListener onPreviewClickedHandler = (view) -> {
+        InputMethodManager inputManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+        inputManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        topMemeText.setText(topText.getText().toString());
+        bottomMemeText.setText(bottomText.getText().toString());
     };
 
     private View.OnClickListener onSaveClickedHandler = (view) -> {
