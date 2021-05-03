@@ -1,5 +1,6 @@
 package vn.vl.nthung.androidcm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -13,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -47,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
         Button updateBtn = findViewById(R.id.update_btn);
         updateBtn.setOnClickListener(onUpdateClicked);
 
+        Button logoutBtn = findViewById(R.id.logout);
+        logoutBtn.setOnClickListener(logoutHandler);
+
         database = FirebaseDatabase.getInstance();
         parentRef = database.getReference("users");
         parentRef.addChildEventListener(new OnDataChangeHandler());
@@ -59,10 +64,21 @@ public class MainActivity extends AppCompatActivity {
 
     private View.OnClickListener onUpdateClicked = view -> {
         String inputName = name.getText().toString();
+        String inputContact = contact.getText().toString();
+        if (inputContact.trim().length() == 0 || inputName.trim().length() == 0) {
+            Toast.makeText(this, "Invalid input", Toast.LENGTH_SHORT).show();
+            return;
+        }
         DatabaseReference childRef = parentRef.child(inputName);
-        childRef.child("name").setValue(name.getText().toString());
-        childRef.child("contact").setValue(contact.getText().toString());
+        childRef.child("name").setValue(inputName);
+        childRef.child("contact").setValue(inputContact);
         Toast.makeText(this, "Data is updated", Toast.LENGTH_LONG).show();
+    };
+
+    private View.OnClickListener logoutHandler = view -> {
+        FirebaseAuth.getInstance().signOut();
+        Intent loginActivity = new Intent(this, LoginActivity.class);
+        startActivity(loginActivity);
     };
 
     class OnDataChangeHandler implements ChildEventListener {
